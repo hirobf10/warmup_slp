@@ -1,4 +1,11 @@
 # Warm-up
+## Installation
+To install modules used in my codes, just run following command.
+```bash
+poetry install
+```
+If you have not installed poetry yet, please refer to [this page](https://python-poetry.org/docs/).
+
 ## Traditional Language model
 I implemented n-gram models in [src/language_model.py](https://github.com/hirobf10/warmup_slp/blob/main/src/language_model.py)  
 
@@ -52,4 +59,4 @@ python src/class_prediction.py "data/titles-en-train.labeled" "data/titles-en-te
 
 | Accuracy | Precision | Recall | f-score |
 |----------|-----------|--------|---------|
-| 0.942    | 0.952     | 0.925  | 0.1608  |
+| 0.942    | 0.952     | 0.925  | 0.938   |
