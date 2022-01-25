@@ -3,7 +3,8 @@
 I implemented n-gram models in [src/language_model.py](https://github.com/hirobf10/warmup_slp/blob/main/src/language_model.py)  
 
 ### Command
-You can run then-gram model with following command, which creates a trigram model.  
+You can run the n-gram model with following command; this command creates trigram.
+
 ```bash
 python src/language_model.py "data/wiki-en-train.word" "data/wiki-en-test.word" 3
 ```
@@ -14,6 +15,23 @@ I report each average of entropy on [wiki-en-test.word](https://github.com/hirob
 |                    | bigram | trigram | 5-gram |
 |--------------------|--------|---------|--------|
 | Average of entropy | 1.3908 | 0.3258  | 0.1608 |
+
+### Simple explanation of my codes
+1. Insertion of special symbols `<s>` and `<\s>`
+    ```py
+    if self.n == 1:
+        tokens.appendleft("<s>")
+        tokens.append("</s>")
+    else:
+        for _ in range(self.n - 1):
+            tokens.appendleft("<s>")
+            tokens.append("</s>")
+    ```
+    I inserted n-1 `<s>` to the head of each sentence and `</s>` to the end (except for unigram), where **n** corresponds to n of **n**-gram.
+    This is because if only one `<s>` is inserted to each sentence, the n-gram model need additional n-2 tokens as context for generation. So the n-gram model needs n-1 `<s>`.
+
+2. Kneser-Ney Smoothing ([codes](https://github.com/hirobf10/warmup_slp/blob/7c57e28170bd8598ce6347c46b6637466aa1d94b/src/language_model.py#L59))  
+    To implement this smoothing method. I referred to Eq. 3.35 in [this text](https://web.stanford.edu/~jurafsky/slp3/3.pdf).
 
 
 ## Class prediction
