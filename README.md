@@ -45,7 +45,7 @@ I report each average of entropy on [wiki-en-test.word](https://github.com/hirob
 - Features: CountVector  
 - Model: LogisticRegression  
 
-In [src/class_prediction.py.py](https://github.com/hirobf10/warmup_slp/blob/main/src/class_prediction.py), I implemented a model which predicts whether a sentence is related to PERSON or not.  
+In [src/class_prediction.py](https://github.com/hirobf10/warmup_slp/blob/main/src/class_prediction.py), I implemented a model which predicts whether a sentence is related to PERSON or not.  
 I used as features counts of tokens appering in documents.  
 To count up frequencies and create vocabulary, I exploited [CountVector](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html).  
 Then, a [LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) model recieves the vector as input and makes predictions.
